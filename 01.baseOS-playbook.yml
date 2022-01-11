@@ -12,4 +12,3 @@
   roles:
     - role: baseos
     - role: spotlight
-    - role: enable-auto-login
