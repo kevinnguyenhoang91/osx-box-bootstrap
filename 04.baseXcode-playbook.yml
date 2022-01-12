@@ -12,8 +12,9 @@
   any_errors_fatal: true
   vars:
     param_user: vagrant
+    xcode_version: "13.1"
   roles:
-    - role: profiles
-    - role: brew
-    - role: brew-repos-fix
+#    - role: profiles
+#    - role: brew
+#    - role: brew-repos-fix
     - role: xcode

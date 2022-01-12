@@ -14,5 +14,5 @@
     loop_var: ruby
 
 - name: Set default ruby to global
-  shell: bash -l -c "rbenv global {{ default_ruby }}"
+  shell: bash -l -c "/opt/homebrew/bin/rbenv global {{ default_ruby }}"
   when: is_incremental_setup|default(false) == false

@@ -9,7 +9,7 @@
   become: true
 
 - name: Update brew
-  shell: . ~/.bash_profile && brew update
+  shell: . ~/.bash_profile && /opt/homebrew/bin/brew update
   changed_when: false
   ignore_errors: true
 
@@ -18,7 +18,7 @@
     . ~/.bash_profile &&\
     grep \
      mirrors/github.com/bitrise-io \
-     $(brew --repository)/Library/Taps/homebrew/homebrew-core/.git/config &&\
+     $(/opt/homebrew/bin/brew --repository)/Library/Taps/homebrew/homebrew-core/.git/config &&\
     git \
      -C {{ ansible_env.HOME }}/mirrors/github.com/bitrise-io/homebrew-core \
      rev-parse HEAD |\
@@ -46,7 +46,7 @@
     . ~/.bash_profile &&\
     grep \
       mirrors/github.com/bitrise-io \
-      $(brew --repository)/Library/Taps/homebrew/homebrew-cask/.git/config &&\
+      $(/opt/homebrew/bin/brew --repository)/Library/Taps/homebrew/homebrew-cask/.git/config &&\
     git \
       -C {{ ansible_env.HOME }}/mirrors/github.com/bitrise-io/homebrew-cask \
       rev-parse HEAD |\

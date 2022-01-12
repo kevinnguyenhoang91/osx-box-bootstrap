@@ -1,4 +1,8 @@
 ---
+- name: Debug
+  debug:
+    msg: Fastlane {{ FASTLANE_SESSION  }}
+
 - name: Make sure xcversion / xcode-install is installed
   gem:
     name: xcode-install

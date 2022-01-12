@@ -8,6 +8,8 @@ export LANGUAGE="en_US.UTF-8"
 export HOMEBREW_NO_AUTO_UPDATE=1
 export HOMEBREW_NO_ANALYTICS=1
 export HOMEBREW_NO_INSTALL_CLEANUP=1
+alias brew='arch -arm64 brew'
+export PATH="$PATH:/opt/homebrew/bin/"
 
 # Go
 export PATH="$PATH:/usr/local/opt/go/libexec/bin"
@@ -38,7 +40,7 @@ if [ -s "$HOME/.profiles/tools_profile" ] ; then
   source "$HOME/.profiles/tools_profile"
 fi
 
-for PROFILE_SCRIPT in $( ls $HOME/profile.d/* ); do
+for PROFILE_SCRIPT in $( ls $HOME/profile.d/ ); do
   . $PROFILE_SCRIPT
 done
 

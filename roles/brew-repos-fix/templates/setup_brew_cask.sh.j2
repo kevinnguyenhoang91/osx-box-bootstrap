@@ -4,7 +4,7 @@ set -e
 
 source {{ ansible_env.HOME }}/.bashrc
 
-brew_repository=$(brew --repository)
+brew_repository=$(/opt/homebrew/bin/brew --repository)
 
 rm -rf {{ ansible_env.HOME }}/mirrors/github.com/bitrise-io/homebrew-cask
 
