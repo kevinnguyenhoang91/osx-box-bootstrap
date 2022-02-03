@@ -1,5 +1,6 @@
 #!/bin/bash
 set -e
+set -x
 
 if [[ "${IS_IGNORE_ERRORS}" == "true" ]] ; then
 echo " (i) Ignore Errors: enabled"
