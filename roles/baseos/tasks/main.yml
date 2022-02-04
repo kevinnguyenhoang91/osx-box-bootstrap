@@ -90,6 +90,10 @@
   become: true
   command: systemsetup -settimezone GMT
 
+- name: Set automatic time updates
+  become: true
+  command: systemsetup -setusingnetworktime on
+
 - name: Ensure /Library/LaunchDaemons/ exists
   file:
     path: /Library/LaunchDaemons/

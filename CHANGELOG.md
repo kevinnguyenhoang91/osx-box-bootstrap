@@ -3,6 +3,9 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## `v2022_02_04`
+* `Enable automatic time syncing`
+
 ## `v2022_01_28_2`
 * `Upddate Homebrew`
 
