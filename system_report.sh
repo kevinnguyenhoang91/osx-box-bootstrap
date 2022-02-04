@@ -177,11 +177,11 @@ echo
 echo "* Installed SDKs:"
 xcodebuild -showsdks
 echo
-# echo "* Available Simulators:"
-# xcrun simctl list | grep -i --invert-match 'unavailable'
-# echo
-# echo "========================================"
-# echo
+echo "* Available Simulators:"
+xcrun simctl list | grep -i --invert-match 'unavailable'
+echo
+echo "========================================"
+echo
 
 echo
 echo "=== OS X info ========================="
