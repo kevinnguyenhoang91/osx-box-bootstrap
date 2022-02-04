@@ -168,3 +168,8 @@
 - name: "Turn off gatekeeper - it will disable the popup of the not appstore downloaded warning"
   shell: spctl --master-disable
   become: true
+
+- name: Install Rosetta for arm cpus
+  shell: softwareupdate --install-rosetta --accept-licenses
+  become: true
+  when: ansible_architecture  == "arm64"
