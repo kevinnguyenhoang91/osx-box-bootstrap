@@ -3,6 +3,9 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## `v2022_02_04_2`
+* `Install Rosetta for ARM`
+
 ## `v2022_02_04`
 * `Enable automatic time syncing`
 
