@@ -170,6 +170,6 @@
   become: true
 
 - name: Install Rosetta for arm cpus
-  shell: softwareupdate --install-rosetta --accept-licenses
+  shell: softwareupdate --install-rosetta --accept-license
   become: true
   when: ansible_architecture  == "arm64"
