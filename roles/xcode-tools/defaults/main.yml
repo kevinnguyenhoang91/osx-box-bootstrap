@@ -1,6 +1,0 @@
----
-xclogparser_version: 0.2.22
-xclogparser_url: https://github.com/MobileNativeFoundation/XCLogParser/releases/download/v{{ xclogparser_version }}/XCLogParser-macOS-{{ arch }}-v{{ xclogparser_version }}.zip
-xcbeautify_version: 0.9.1
-xcbeautify_url: https://github.com/tuist/xcbeautify/releases/download/{{ xcbeautify_version }}/xcbeautify-{{ xcbeautify_version }}-{{ arch }}-apple-macosx.zip
-...

@@ -3,9 +3,6 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
-## `v2022_02_09_2`
-* `Update xcode-tools role to differentiate between architectures`
-
 ## `v2022_02_09`
 * `Change gem executable path from rbenv to asdf`
 
