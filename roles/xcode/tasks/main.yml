@@ -8,10 +8,10 @@
   gem:
     name: xcode-install
     user_install: false
-    executable: "{{ ansible_env.HOME }}/.rbenv/shims/gem"
+    executable: "{{ ansible_env.HOME }}/.asdf/shims/gem"
 
 - name: Install xcode "{{ xcode_version }}", it could take a while. About an hour, so be patient.
-  shell: bash -l -c "{{ ansible_env.HOME }}/.rbenv/shims/xcversion install '{{ xcode_version }}'"
+  shell: bash -l -c "{{ ansible_env.HOME }}/.asdf/shims/xcversion install '{{ xcode_version }}'"
   environment:
     XCODE_INSTALL_USER: "{{ XCODE_INSTALL_USER }}"
     XCODE_INSTALL_PASSWORD: "{{ XCODE_INSTALL_PASSWORD }}"
@@ -52,12 +52,12 @@
 - name: Switch to Xcode stable with xcversion
   become: true
   # Full path required here because of the 'become:true'
-  shell: bash -l -c "/Users/{{ param_user }}/.rbenv/shims/xcversion select {{ xcversion_installed.stdout }}"
+  shell: bash -l -c "{{ ansible_env.HOME }}/.asdf/shims/xcversion select {{ xcversion_installed.stdout }}"
 
 - name: Clean up Xcode install caches
   # Full path required here because of the 'become:true'
   become: true
-  shell: bash -l -c "/Users/{{ param_user }}/.rbenv/shims/xcversion cleanup"
+  shell: bash -l -c "{{ ansible_env.HOME }}/.asdf/shims/xcversion cleanup"
 
 - name: Enable accessibility to xcode
   become: true
