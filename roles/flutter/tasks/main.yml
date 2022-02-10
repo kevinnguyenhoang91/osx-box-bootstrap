@@ -21,21 +21,21 @@
 - name: Install fvm
   when: is_fvm_available.rc != 0
   block:
-  - name: Tap fvm
-    homebrew_tap:
-      name: leoafarias/fvm
-      state: present
-      path: "{{ BREW_HOME }}"
-  - name: Tap dart
-    homebrew_tap:
-      name: dart-lang/dart
-      state: present
-      path: "{{ BREW_HOME }}"
-  - name: Install
-    homebrew:
-      name: fvm
-      state: present
-      path: "{{ BREW_HOME }}"
+    - name: Tap fvm
+      homebrew_tap:
+        name: leoafarias/fvm
+        state: present
+        path: "{{ BREW_HOME }}"
+    - name: Tap dart
+      homebrew_tap:
+        name: dart-lang/dart
+        state: present
+        path: "{{ BREW_HOME }}"
+    - name: Install
+      homebrew:
+        name: fvm
+        state: present
+        path: "{{ BREW_HOME }}"
 
 - name: Install Flutter versions
   include_tasks:
@@ -48,13 +48,17 @@
 - name: Set Flutter 1 as default
   shell: bash -l -c "{{ BREW_HOME }}/fvm global {{ flutter_versions[0] }}"  # complete version is required
 
+- name: Install junitreport package
+  # Recent Flutter versions depend on this CLI tool, but fail to activate it during the build and cause a hanging build.
+  # Details: https://bitrise.atlassian.net/browse/STEP-1797
+  shell: bash -l -c "{{ BREW_HOME }}/dart pub global activate junitreport"
+
 - name: Warmup flutter
   block:
-  - name: Run flutter precache
-    shell: bash -l -c "{{ BREW_HOME }}/fvm flutter precache"
+    - name: Run flutter precache
+      shell: bash -l -c "{{ BREW_HOME }}/fvm flutter precache"
 
-  - name: Run flutter doctor
-    shell: bash -l -c "{{ BREW_HOME }}/fvm flutter doctor"
-    ignore_errors: true
-
+    - name: Run flutter doctor
+      shell: bash -l -c "{{ BREW_HOME }}/fvm flutter doctor"
+      ignore_errors: true
 ...

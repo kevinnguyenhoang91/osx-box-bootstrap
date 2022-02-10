@@ -3,8 +3,17 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## `v2022_02_10`
+* `Update brew-repo-fix to dinamically find brew bin path`
+
 ## `v2022_02_09`
 * `Change gem executable path from rbenv to asdf`
+
+## `v2022_02_09`
+* Install `junitreport` Dart pacakge
+
+## `v2022_02_08`
+* `Install and set up asdf, install ruby versions via asdf instead of rbenv`
 
 ## `v2022_02_04_2`
 * `Install Rosetta for ARM`

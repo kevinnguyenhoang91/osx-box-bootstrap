@@ -236,12 +236,6 @@ workflows:
     after_run:
     - _run_molecule_test
 
-  test_brew-repos-fix:
-    envs:
-    - ROLE: "brew-repos-fix"
-    after_run:
-    - _run_molecule_test
-
   test_xamarin:
     envs:
     - ROLE: "xamarin"

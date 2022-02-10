@@ -40,9 +40,9 @@
     - name: Display the installed xcode versions
       debug:
         msg:
-        - "xcversion: {{ xcversion_selected.stdout }}"
-        - "xcode-select: {{ xcode_select_path.stdout }}"
-        - "xcversion installed: {{ xcversion_installed.stdout }}"
+          - "xcversion: {{ xcversion_selected.stdout }}"
+          - "xcode-select: {{ xcode_select_path.stdout }}"
+          - "xcversion installed: {{ xcversion_installed.stdout }}"
 
 - name: Fix the Xcode.app symlink if not selected
   become: true

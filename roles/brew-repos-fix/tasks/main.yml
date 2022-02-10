@@ -29,15 +29,15 @@
 
 - name: Setup script and fix brew core
   block:
-  - name: Copy brew-core-fixer
-    template:
-      src: setup_brew_core.sh.j2
-      dest: /opt/bitrise/setup_brew_core.sh
-      owner: "{{ param_user }}"
-      mode: "0755"
+    - name: Copy brew-core-fixer
+      template:
+        src: setup_brew_core.sh.j2
+        dest: /opt/bitrise/setup_brew_core.sh
+        owner: "{{ param_user }}"
+        mode: "0755"
 
-  - name: Setup brew to use our own fork of homebrew core to ensure versions
-    shell: /opt/bitrise/setup_brew_core.sh
+    - name: Setup brew to use our own fork of homebrew core to ensure versions
+      shell: /opt/bitrise/setup_brew_core.sh
 
   when: brew_repository_core_set is failed
 
@@ -57,15 +57,15 @@
 
 - name: Setup script and fix brew cask
   block:
-  - name: Copy brew-cask-fixer
-    template:
-      src: setup_brew_cask.sh.j2
-      dest: /opt/bitrise/setup_brew_cask.sh
-      owner: "{{ param_user }}"
-      mode: "0755"
+    - name: Copy brew-cask-fixer
+      template:
+        src: setup_brew_cask.sh.j2
+        dest: /opt/bitrise/setup_brew_cask.sh
+        owner: "{{ param_user }}"
+        mode: "0755"
 
-  - name: Setup brew to use our own fork of homebrew cask to ensure versions
-    shell: /opt/bitrise/setup_brew_cask.sh
+    - name: Setup brew to use our own fork of homebrew cask to ensure versions
+      shell: /opt/bitrise/setup_brew_cask.sh
 
   when: brew_repository_cask_set is failed
 
