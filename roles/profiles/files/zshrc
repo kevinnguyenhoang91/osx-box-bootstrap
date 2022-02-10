@@ -19,13 +19,9 @@ export GO111MODULE=auto
 export PATH="$PATH:$HOME/.pub-cache/bin"
 export PATH="$PATH:$HOME/fvm/default/bin"
 
-# Ruby - force brew installed Ruby
-if [ -d "/usr/local/lib/ruby/gems/2.5.0/bin" ] ; then
-  export PATH="$PATH:/usr/local/lib/ruby/gems/2.5.0/bin"
-fi
-if [ -x "$(command -v rbenv)" ] ; then
-  eval "$(rbenv init -)"
-  RUBY_CONFIGURE_OPTS=--with-readline-dir=`brew --prefix readline`
+# Ruby setup
+if command -v asdf; then
+  . $(brew --prefix asdf)/libexec/asdf.sh
 fi
 
 # Bitrise environments

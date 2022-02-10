@@ -3,6 +3,9 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## `v2022_02_08`
+* `Install and set up asdf, install ruby versions via asdf instead of rbenv`
+
 ## `v2022_02_04_2`
 * `Install Rosetta for ARM`
 
