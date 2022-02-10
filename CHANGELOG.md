@@ -3,6 +3,9 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## `v2022_02_09`
+* Install `junitreport` Dart pacakge
+
 ## `v2022_02_04`
 * `Enable automatic time syncing`
 
