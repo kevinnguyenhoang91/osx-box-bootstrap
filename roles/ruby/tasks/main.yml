@@ -25,6 +25,9 @@
   register: current_default
   ignore_errors: true
 
+- name: make sure shims are generated
+  shell: "{{ brew_path }}/asdf reshim ruby"
+
 - name: Set default ruby to global
   shell: "{{ brew_path }}/asdf global ruby {{ default_ruby }}"
   when: current_default.stdout != default_ruby
