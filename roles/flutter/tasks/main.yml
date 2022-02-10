@@ -48,6 +48,11 @@
 - name: Set Flutter 1 as default
   shell: bash -l -c "{{ BREW_HOME }}/fvm global {{ flutter_versions[0] }}"  # complete version is required
 
+- name: Install junitreport package
+  # Recent Flutter versions depend on this CLI tool, but fail to activate it during the build and cause a hanging build.
+  # Details: https://bitrise.atlassian.net/browse/STEP-1797
+  shell: bash -l -c "{{ BREW_HOME }}/dart pub global activate junitreport"
+
 - name: Warmup flutter
   block:
     - name: Run flutter precache
