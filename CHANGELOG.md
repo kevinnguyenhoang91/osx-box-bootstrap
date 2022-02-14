@@ -3,6 +3,9 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## `v2022_02_10_2`
+* `Update xcode-tools role to differentiate between architectures`
+
 ## `v2022_02_10`
 * `Update brew-repo-fix to dinamically find brew bin path`
 
