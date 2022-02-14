@@ -3,6 +3,9 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## `v2022_02_10`
+* Fix time syncing in Monterey
+
 ## `v2022_02_09`
 * Install `junitreport` Dart pacakge
 

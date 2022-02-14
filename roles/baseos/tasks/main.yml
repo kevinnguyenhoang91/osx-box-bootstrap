@@ -1,4 +1,8 @@
 ---
+- name: Get MacOS version
+  command: sw_vers -productVersion
+  register: macos_version
+
 - name: Let {{ param_user }} to execute sudo commands without password
   become: true
   copy:
@@ -94,6 +98,13 @@
   become: true
   command: systemsetup -setusingnetworktime on
 
+# On Monterey, there is a bug affecting clock setting thet Veertu are investingting
+# This sets anka tools to run a clock update on boot
+- name: Set Anka tools service to update the clock
+  become: true
+  command: /usr/libexec/PlistBuddy -c 'Set :ProgramArguments:4 On' /Library/LaunchDaemons/com.veertu.anka.addons.systemsetup.plist
+  when: macos_version.stdout.split('.')[0] | int >= 11
+
 - name: Ensure /Library/LaunchDaemons/ exists
   file:
     path: /Library/LaunchDaemons/
@@ -149,10 +160,6 @@
 - name: Turn off macos automatic software updates
   shell: softwareupdate --schedule off
   become: true
-
-- name: Get MacOS version
-  command: sw_vers -productVersion
-  register: macos_version
 
 - name: Turn off macos automatic software pre-download on Big Sur
   become: true
