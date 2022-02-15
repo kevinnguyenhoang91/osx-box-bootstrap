@@ -6,7 +6,7 @@
 
 - name: Create directory for plist
   file:
-    path: "{{ curr_user_lib_launch_agents_dir }}"
+    path: "{{ curr_user_lib_launch_daemons_dir }}"
     state: directory
 
 - name: Add keychain-unlocker plist file
@@ -35,3 +35,4 @@
 
 - name: Load keychain-unlocker plist
   shell: "launchctl load -w {{ script_plist_path }}"
+  become: true

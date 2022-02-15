@@ -11,14 +11,14 @@
     path: "{{ ansible_env.HOME }}/.ruby-version"
     state: absent
 
-- name: Install gem packages
-  gem:
-    name: "{{ item.name }}"
-    version: "{{ item.version }}"
-    executable: "$HOME/.rbenv/shims/gem"
-    user_install: false
-  with_items:
-    - "{{ gem_packages }}"
+#- name: Install gem packages
+#  gem:
+#    name: "{{ item.name }}"
+#    version: "{{ item.version }}"
+#    executable: "gem"
+#    user_install: false
+#  with_items:
+#    - "{{ gem_packages }}"
 
 # GEMs: Cocoapods
 
@@ -31,7 +31,7 @@
   register: cocoapods_specs_repo
 
 - name: pod setup
-  shell: bash -l -c "pod setup"
+  shell: bash -l -c "/Users/vagrant/.asdf/shims/pod setup"
   when: cocoapods_specs_repo.before == None
 
 - name: CocoaPods specs install with pod NOT FOR CI
@@ -52,5 +52,5 @@
     and lookup('env', 'IS_CI')
 
 - name: "CocoaPods: pod repo update"
-  shell: bash -l -c "pod repo update"
+  shell: bash -l -c "/Users/vagrant/.asdf/shims/pod repo update"
   when: not lookup('env', 'IS_CI')

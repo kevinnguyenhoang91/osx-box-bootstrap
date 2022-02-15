@@ -13,4 +13,4 @@
   pip:
     name: "{{ pip_packages }}"
     state: present
-    executable: /usr/local/bin/pip3
+    executable: /opt/homebrew/bin/pip3

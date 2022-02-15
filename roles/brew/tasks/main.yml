@@ -8,7 +8,7 @@
   when: ansible_distribution == 'Ubuntu'
 
 - name: Check if brew is installed
-  shell: "/usr/local/bin/brew config"
+  shell: "/opt/homebrew/bin/brew config"
   register: is_brew_installed
   changed_when: false
   ignore_errors: true
@@ -40,7 +40,3 @@
   shell: "echo 'eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)' >> ~/.bash_profile"
   when: ansible_distribution == 'Ubuntu' and bash_profile is failed
 
-- name: Install intel-haxm
-  homebrew_cask:
-    name: intel-haxm
-    state: present

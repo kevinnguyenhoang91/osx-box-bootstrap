@@ -10,7 +10,7 @@
 
 - name: run kcpassword
   become: true
-  command: /usr/bin/python /usr/local/bin/kcpassword "{{ password_of_param_user }}"
+  command: /opt/homebrew/bin/python3 /usr/local/bin/kcpassword "{{ password_of_param_user }}"
 
 - name: add "{{ param_user }}" to defaults autologin
   become: true

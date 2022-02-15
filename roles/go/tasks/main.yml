@@ -16,7 +16,7 @@
   when: latest_is_installed.rc == 0
 
 - name: Link go 1.16
-  shell: bash -l -c "brew link go@1.16"
+  shell: bash -l -c "/opt/homebrew/bin/brew link go@1.16"
 
 - name: prepare GOPATH dirs
   file:
@@ -29,5 +29,5 @@
     - { fold_path: 'pkg' }
 
 - name: Set up GO111MODULE
-  shell: bash -l -c "go env -w GO111MODULE=auto"
+  shell: bash -l -c "/opt/homebrew/bin/go env -w GO111MODULE=auto"
 ...
