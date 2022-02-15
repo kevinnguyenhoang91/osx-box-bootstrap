@@ -1,5 +1,5 @@
 ---
 - name: Brew cleanup weekly
-  shell: /usr/local/bin/brew cleanup
+  shell: /opt/homebrew/bin/brew cleanup
   changed_when: false
   ignore_errors: true

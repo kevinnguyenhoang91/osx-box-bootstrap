@@ -1,4 +1,12 @@
 ---
+- name: Create directory /usr/local/bin
+  file:
+    path: /usr/local/bin
+    state: directory
+    owner: "{{ param_user  }}"
+    mode: '0755'
+  become: true
+
 # kcpassword from https://github.com/veertuinc/kcpassword.git
 - name: kcpassword python file
   copy:
@@ -10,7 +18,7 @@
 
 - name: run kcpassword
   become: true
-  command: /usr/bin/python /usr/local/bin/kcpassword "{{ password_of_param_user }}"
+  command: /opt/homebrew/bin/python3 /usr/local/bin/kcpassword "{{ password_of_param_user }}"
 
 - name: add "{{ param_user }}" to defaults autologin
   become: true
