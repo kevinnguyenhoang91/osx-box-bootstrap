@@ -3,6 +3,21 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## `v2022_02_10`
+* Fix time syncing in Monterey
+
+## `v2022_02_09`
+* Install `junitreport` Dart pacakge
+
+## `v2022_02_04`
+* `Enable automatic time syncing`
+
+## `v2022_01_28_2`
+* `Upddate Homebrew`
+
+## `v2022_01_28`
+* `Add empty simulator list for 13.3.x`
+
 ## `v2022_01_10`
 * `Enable nightly system reports.`
 
