@@ -12,8 +12,6 @@ trigger_map:
   workflow: provision-vm
 - push_branch: step/2
   workflow: perform-weekly-cache-update
-- push_branch: step/xamarin
-  workflow: provision-xamarin-vm
 workflows:
   _pod_remove_master:
     steps:
@@ -172,17 +170,6 @@ workflows:
             -i "${VM_BUILD_IP}", \
             "./playbook.yml"
 
-  provision-xamarin-vm:
-    description: |-
-      Runs `ansible` with the `xamarin-playbook.yml` playbook, to provision the
-      Virtual Machine. After this the VM should be completely ready,
-      you just have to save it / package it / distribute it.
-    after_run:
-    - _ansible-play
-    envs:
-    - LOCAL_PLAYBOOK_PATH: ./xamarin-playbook.yml
-    - ADDITIONAL_VARIABLES_TO_ANSIBLE: '-i "${VM_BUILD_IP}",'
-
   weekly-cache-update-test:
     before_run:
     - _cli-version
@@ -239,12 +226,6 @@ workflows:
   test_brew-repos-fix:
     envs:
     - ROLE: "brew-repos-fix"
-    after_run:
-    - _run_molecule_test
-
-  test_xamarin:
-    envs:
-    - ROLE: "xamarin"
     after_run:
     - _run_molecule_test
 

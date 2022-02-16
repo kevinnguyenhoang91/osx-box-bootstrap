@@ -13,8 +13,6 @@
   roles:
     - role: profiles
     - role: baseos
-    - role: xamarin
-      when: is_xamarin == true
     - role: brew
     - role: brew-repos-fix
     - role: flutter

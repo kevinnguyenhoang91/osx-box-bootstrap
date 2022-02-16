@@ -31,11 +31,6 @@
 
 - name: set Java 11 as Global in jEnv on Xcode stacks
   shell: bash -l -c "jenv global 11"
-  when: not is_xamarin|bool
-
-- name: set Java 8 as Global in jEnv on Vs4mac stacks
-  shell: bash -l -c "jenv global 1.8"
-  when: is_xamarin|bool
 
 - name: Ensure shims are updated
   shell: bash -lc 'jenv rehash'  # noqa no-changed-when

@@ -244,36 +244,6 @@ quite some time.*
 * NOTE: you can also `bitrise trigger step/X` these workflows, where `X` is the order of the step
   * e.g. `bitrise trigger step/1` runs the same as `bitrise run vagrant-setup`, as that's the first Bitrise CLI "step" of this guide
 
-### Xamarin notes
-
-_Note: the Xamarin stack can be built on top of an already provisioned Xcode stack/template.
-Just clone the provisioned Xcode template, do the Xamarin specific bits, and that's all._
-
-Update Xamarin components in this repository
-
-Update NUnit
-* From: http://www.nunit.org/index.php?p=download
-* To: `xamarin/nunit`
-* Latest Version: 3.4.1
-* Update NUNIT_PATH in `profiles/xamarin_profile`
-
-Update Xamarin Components
-* From: https://components.xamarin.com/submit/xpkg
-* To: `xamarin/xamarin-component`
-
-Install Xamarin Platform on the VM
-
-* from: https://xamarin.com/platform
-* launch Visual Studio and set it to "don't check for updates"
-  * Menu bar : Visual Studio -> Check for updates -> uncheck
-* set Log level
-  * Menu bar : Visual Studio -> Preferences -> Build -> Log verbosity: Quiet
-* close Visual Studio
-
-To add the Xamarin specific bits you should also run this,
-after you ran the previous steps: `bitrise run provision-xamarin-vm`
-
-
 ## Layout of this repository
 
 * Root (the directory this README file is in) contains the main `ansible` setup playbooks, and this guide/overview README

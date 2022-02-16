@@ -202,45 +202,6 @@ $info_line"
 echo "========================================"
 echo
 
-if [ ! -z "$BITRISE_XAMARIN_FOLDER_PATH" ] ; then
-  echo
-  echo "=== Xamarin specific ==================="
-  echo
-  echo "--- Xamarin"
-  echo
-  if [ -e "/Applications/Visual Studio.app/Contents/Resources/lib/monodevelop/bin/buildinfo" ] ; then
-    echo "* Visual Studio"
-    cat "/Applications/Visual Studio.app/Contents/Resources/lib/monodevelop/bin/buildinfo"
-  else
-    echo "* Xamarin Studio"
-    cat "/Applications/Xamarin Studio.app/Contents/Resources/lib/monodevelop/bin/buildinfo"
-  fi
-  echo
-  echo "* Mono version:"
-  mono --version
-  echo "* Mono path:"
-  which mono
-  echo
-  echo "* Xamarin.Android"
-  ls /Library/Frameworks/Xamarin.Android.framework/Versions
-  echo
-  echo "* Xamarin.iOS"
-  ls /Library/Frameworks/Xamarin.iOS.framework/Versions
-  echo
-  echo "* debug.keystore path:"
-  debug_keystore_pth="$HOME/.local/share/Xamarin/Mono for Android/debug.keystore"
-  if [ -f "${debug_keystore_pth}" ] ; then
-    echo "$debug_keystore_pth"
-  else
-    echo "Missing android debug.keystore"
-    if [[ "$BITRISE_OSX_STACK_REV_ID" != "v2016_08_10_1" ]] ; then
-      # Fail, unless old LTS Xamarin stack
-      tree "$HOME/.local/share"
-      exit 1
-    fi
-  fi
-fi
-
 if [ -n "$ANDROID_HOME" ] ; then
   echo "--- Android"
   echo
