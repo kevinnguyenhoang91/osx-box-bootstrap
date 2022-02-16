@@ -16,14 +16,17 @@ export GOPATH="$HOME/go"
 export PATH="$PATH:$GOPATH/bin"
 export GO111MODULE=auto
 
-# Flutter & fvm
+# Flutter & fvm
 export PATH="$PATH:$HOME/.pub-cache/bin"
 export PATH="$PATH:$HOME/fvm/default/bin"
 
-# Ruby setup
-if command -v asdf; then
-  . $(brew --prefix asdf)/libexec/asdf.sh
-  . $(brew --prefix asdf)/etc/bash_completion.d/asdf.bash
+# Ruby - force brew installed Ruby
+if [ -d "/usr/local/lib/ruby/gems/2.5.0/bin" ] ; then
+  export PATH="$PATH:/usr/local/lib/ruby/gems/2.5.0/bin"
+fi
+if [ -x "$(command -v rbenv)" ] ; then
+  eval "$(rbenv init -)"
+  RUBY_CONFIGURE_OPTS=--with-readline-dir=`brew --prefix readline`
 fi
 
 # Bitrise environments

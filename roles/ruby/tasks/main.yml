@@ -1,34 +1,19 @@
 ---
-- name: set up default brew path
-  set_fact:
-      brew_path: "{{ '/opt/homebrew/bin' if ansible_architecture == 'arm64' else '/usr/local/bin' }}"
-
-- name: Check if ruby plugin is added
-  shell: "{{ brew_path }}/asdf plugin list | grep ruby"
-  register: ruby_plugin
-  ignore_errors: true
-
-- name: add ruby plugin
-  shell: "{{ brew_path }}/asdf plugin add ruby"
-  when: ruby_plugin.rc != 0
+- name: brew install rbenv
+  homebrew:
+    name: rbenv
+    state: latest  # noqa 403 Package installs should not use latest
+    update_homebrew: true
 
 - name: Install Ruby versions
   include_tasks:
-      file: ruby.yml
+    file: ruby.yml
   with_items:
-      - "{{ ruby_versions }}"
+    - "{{ ruby_versions }}"
   loop_control:
-      loop_var: ruby
-
-- name: Check default version
-  shell: "{{ brew_path }}/asdf current ruby | awk '{print $2}'"
-  register: current_default
-  ignore_errors: true
-
-- name: make sure shims are generated
-  shell: "{{ brew_path }}/asdf reshim ruby"
+    loop_var: ruby
 
 - name: Set default ruby to global
-  shell: "{{ brew_path }}/asdf global ruby {{ default_ruby }}"
-  when: current_default.stdout != default_ruby
+  shell: bash -l -c "rbenv global {{ default_ruby }}"
+  when: is_incremental_setup|default(false) == false
 ...

@@ -1,5 +1,5 @@
 ---
-#- name: "run git lfs install"
+# - name: "run git lfs install"
 #  shell: "bash -l -c '/opt/homebrew/bin/git lfs install'"
 
 - name: git config name

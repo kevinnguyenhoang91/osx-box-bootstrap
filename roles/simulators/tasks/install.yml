@@ -3,17 +3,17 @@
   gem:
     name: xcode-install
     user_install: false
-    executable: "{{ ansible_env.HOME }}/.asdf/shims/gem"
+    executable: "{{ ansible_env.HOME }}/.rbenv/shims/gem"
 
 - name: Test Simulator installed - {{ item }}
-  shell: "bash -l -c \"/Users/{{ param_user }}/.asdf/shims/xcversion simulators | grep '(installed)' | grep '{{ item }}'\""
+  shell: bash -l -c "xcversion simulators | grep '(installed)' | grep '{{ item }}'"
   register: simulator_installed
   changed_when: false
   ignore_errors: true
   when: simulators | length > 0
 
 - name: Install xcode simulators - {{ item }}
-  shell: "bash -l -c \"/Users/{{ param_user }}/.asdf/shims/xcversion simulators --install='{{ item }}'\""
+  shell: bash -l -c "xcversion simulators --install='{{ item }}'"
   environment:
     XCODE_INSTALL_USER: "{{ XCODE_INSTALL_USER }}"
     XCODE_INSTALL_PASSWORD: "{{ XCODE_INSTALL_PASSWORD }}"

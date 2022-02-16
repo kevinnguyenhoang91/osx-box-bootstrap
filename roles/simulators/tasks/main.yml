@@ -18,7 +18,7 @@
   shell: bash -l -c "xcrun simctl list"
 
 - name: Cleanup cached downloads
-  shell: "bash -l -c \"/Users/vagrant/.asdf/shims/xcversion cleanup\""
+  shell: bash -l -c "xcversion cleanup"
   environment:
     XCODE_INSTALL_USER: "{{ XCODE_INSTALL_USER }}"
     XCODE_INSTALL_PASSWORD: "{{ XCODE_INSTALL_PASSWORD }}"

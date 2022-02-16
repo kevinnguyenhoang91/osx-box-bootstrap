@@ -3,6 +3,9 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## `v2022_02_16`
+* `revert ruby related changes`
+
 ## `v2022_02_10_2`
 * `Update xcode-tools role to differentiate between architectures`
 
