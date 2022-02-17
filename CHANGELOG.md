@@ -3,6 +3,9 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## `v2022_02_17_2`
+* `Automate adding Xcode-Helper to accessibility Privacy Pane on Monterey`
+
 ## `v2022_02_17_1`
 * `Fix a condition in baseos role`
 
