@@ -3,6 +3,10 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## `v2022_02_17`
+* `Install a fixed Bitrise CLI analytics plugin version`
+* `Added OpenVPN`
+
 ## `v2022_02_10`
 * Fix time syncing in Monterey
 
