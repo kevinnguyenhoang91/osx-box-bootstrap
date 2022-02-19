@@ -68,7 +68,7 @@
 
 - name: accept xcode license
   become: true
-  script: bash -l -c "xcodebuild -license accept"
+  shell: bash -l -c "xcodebuild -license accept"
 
 # Enable Developer Mode. Without this Xcode.app might block UI Tests,
 # waiting for manual input (password). Since Xcode 9.3 it seems this is
