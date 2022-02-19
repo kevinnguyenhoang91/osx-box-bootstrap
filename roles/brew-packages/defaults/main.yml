@@ -22,8 +22,12 @@ brew_packages:
   - name: "watchman"
   - name: "wget"
   - name: "yarn"
-  - name: "swiftlint"
   - name: "openvpn"
+
+brew_packages_with_version_constraints:
+  - name: "swiftlint"
+    minimum_os_version: 11
+
 danger_swift_unsupported_versions:
   - '10.3'
   - '11.1'
