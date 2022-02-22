@@ -3,6 +3,9 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## `v2022_02_21`
+* `System report generation for staging.`
+
 ## `v2022_02_19_1`
 * `Fix ansible task in xcode role`
 
