@@ -75,7 +75,7 @@ ver_line="$(openconnect --version | head -n 1)";              echo "* $ver_line"
 ver_line="$(aws --version)" ;                                 echo "* aws-cli: $ver_line"
 ver_line="$(cmake --version | head -n1 | awk '{print $3}')" ; echo "* cmake: $ver_line"
 ver_line="$(danger-swift --version)" ;                        echo "* danger-swift: $ver_line"
-
+ver_line="$(openvpn --version | head -n 1)" ;                 echo "* $ver_line"
 
 
 

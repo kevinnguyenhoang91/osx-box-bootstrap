@@ -3,6 +3,26 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## `v2022_02_21`
+* `System report generation for staging.`
+
+## `v2022_02_19_1`
+* `Fix ansible task in xcode role`
+
+## `v2022_02_19`
+* `Automatically accept xcode license`
+* `deprecated: do not install swiftlint on macOS 10.x`
+
+## `v2022_02_17_2`
+* `Automate adding Xcode-Helper to accessibility Privacy Pane on Monterey`
+
+## `v2022_02_17_1`
+* `Fix a condition in baseos role`
+
+## `v2022_02_17`
+* `Install a fixed Bitrise CLI analytics plugin version`
+* `Added OpenVPN`
+
 ## `v2022_02_10`
 * Fix time syncing in Monterey
 

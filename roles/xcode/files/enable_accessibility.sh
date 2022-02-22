@@ -56,6 +56,9 @@ elif test "z$OS_MAJOR_VERSION" = z11; then
   sudo sqlite3 "/Library/Application Support/com.apple.TCC/TCC.db" "INSERT or REPLACE INTO access VALUES('kTCCServiceAccessibility','com.apple.dt.Xcode-Helper',0,2,4,1,NULL,NULL,0,'UNUSED',NULL,0,0);"
 elif test "z$OS_MAJOR_VERSION" = z12; then
   sudo sqlite3 "/Library/Application Support/com.apple.TCC/TCC.db" "INSERT INTO access VALUES('kTCCServiceAccessibility','com.apple.dt.Xcode',0,2,4,1,NULL,NULL,0,'UNUSED',NULL,0,0);"
+  
+  # Hex equals to: "identifier "com.apple.dt.Xcode-Helper" and anchor apple"
+  sudo sqlite3 "/Library/Application Support/com.apple.TCC/TCC.db" "INSERT or REPLACE INTO access VALUES('kTCCServiceAccessibility','com.apple.dt.Xcode-Helper',0,2,4,1,X'FADE0C000000003800000001000000060000000200000019636F6D2E6170706C652E64742E58636F64652D48656C70657200000000000003',NULL,0,'UNUSED',NULL,0,$(date +%s));"
 else
   echo -e "\n********************************************************************************"
   echo -e "\n                Unsupported macOS version to enable accessibility"
