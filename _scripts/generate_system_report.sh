@@ -6,6 +6,8 @@ set -x
 REPORT_FOLDER="$(mktemp -d)"
 if [[ ${REPORT_BRANCH} == "STAGING" ]]; then
   REPORT_BRANCH_NAME="staging"
+elif [[ ${REPORT_BRANCH} == "EDGE" ]]; then
+  REPORT_BRANCH_NAME="edge"
 else
   REPORT_BRANCH_NAME="gen2-system-reports-w$(date +%W)"
 fi

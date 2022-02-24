@@ -3,6 +3,9 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## `v2022_02_24`
+* `System report generation for edge.`
+
 ## `v2022_02_21`
 * `System report generation for staging.`
 
