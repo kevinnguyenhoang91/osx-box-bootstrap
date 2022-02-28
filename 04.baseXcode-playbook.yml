@@ -17,3 +17,4 @@
     - role: brew
     - role: brew-repos-fix
     - role: xcode
+    - role: automation-mode-tool

@@ -3,6 +3,9 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## `v2022_02_25`
+* `Automate interactive shell command with applescript`
+
 ## `v2022_02_21`
 * `System report generation for staging.`
 
