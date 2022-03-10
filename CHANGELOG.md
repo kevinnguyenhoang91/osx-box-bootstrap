@@ -3,6 +3,9 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## `v2022_03_10`
+* `Remove intel-haxm`
+
 ## `v2022_02_25`
 * `Automate interactive shell command with applescript`
 
