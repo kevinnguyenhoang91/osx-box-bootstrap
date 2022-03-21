@@ -224,12 +224,6 @@ workflows:
     after_run:
     - _run_molecule_test
 
-  test_go:
-    envs:
-    - ROLE: "go"
-    after_run:
-    - _run_molecule_test
-
   test_remote-access:
     envs:
     - ROLE: "remote-access"

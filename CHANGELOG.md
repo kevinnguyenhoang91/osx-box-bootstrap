@@ -3,6 +3,9 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## `v2022_03_21`
+* `Update Golang to 1.17.8`
+
 ## `v2022_03_10`
 * `Remove intel-haxm`
 
