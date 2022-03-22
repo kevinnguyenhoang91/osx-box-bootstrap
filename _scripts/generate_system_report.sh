@@ -4,7 +4,11 @@ set -e
 set -x
 
 REPORT_FOLDER="$(mktemp -d)"
-REPORT_BRANCH_NAME="gen2-system-reports-w$(date +%W)"
+if [[ ${REPORT_BRANCH} == "STAGING" ]]; then
+  REPORT_BRANCH_NAME="staging"
+else
+  REPORT_BRANCH_NAME="gen2-system-reports-w$(date +%W)"
+fi
 GEN2_FOLDER_PATH="$REPORT_FOLDER/system_reports/GEN2"
 
 envman add --key REPORT_BRANCH_NAME --value "${REPORT_BRANCH_NAME}"

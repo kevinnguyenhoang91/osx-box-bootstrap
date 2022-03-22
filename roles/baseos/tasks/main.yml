@@ -103,7 +103,7 @@
 - name: Set Anka tools service to update the clock
   become: true
   command: /usr/libexec/PlistBuddy -c 'Set :ProgramArguments:4 On' /Library/LaunchDaemons/com.veertu.anka.addons.systemsetup.plist
-  when: macos_version.stdout.split('.')[0] | int >= 11
+  when: macos_version.stdout.split('.')[0] | int == 12
 
 - name: Ensure /Library/LaunchDaemons/ exists
   file:

@@ -3,6 +3,53 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## `v2022_03_21_7`
+* `Simulators for XC 13.3`
+
+## `v2022_03_21_6`
+* `Add metadata for php`
+
+## `v2022_03_21_5`
+* `Pre-install PhP7 on Monterey`
+
+## `v2022_03_21_4`
+* `Update Golang to 1.17^`
+
+## `v2022_03_22_3`
+* `Preinstall JDK17`
+
+## `v2022_03_22_2`
+* `Remove dead code`
+
+## `v2022_03_22`
+* `Flutter updated: 2.10.3 and 1.22.6. Set flutter 2 as default`
+
+## `v2022_03_10`
+* `Remove intel-haxm`
+
+## `v2022_02_25`
+* `Automate interactive shell command with applescript`
+
+## `v2022_02_21`
+* `System report generation for staging.`
+
+## `v2022_02_19_1`
+* `Fix ansible task in xcode role`
+
+## `v2022_02_19`
+* `Automatically accept xcode license`
+* `deprecated: do not install swiftlint on macOS 10.x`
+
+## `v2022_02_17_2`
+* `Automate adding Xcode-Helper to accessibility Privacy Pane on Monterey`
+
+## `v2022_02_17_1`
+* `Fix a condition in baseos role`
+
+## `v2022_02_17`
+* `Install a fixed Bitrise CLI analytics plugin version`
+* `Added OpenVPN`
+
 ## `v2022_02_10`
 * Fix time syncing in Monterey
 

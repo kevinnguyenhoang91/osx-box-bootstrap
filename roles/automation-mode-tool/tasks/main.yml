@@ -1,0 +1,23 @@
+---
+- name: Get MacOS version
+  command: sw_vers -productVersion
+  register: macos_version
+
+- name: Automation mode
+  block:
+  - name: Copy script to VM
+    copy:
+      src: automationmodetool.applescript
+      dest: /tmp/automationmodetool.applescript
+      mode: 0755
+      owner: "{{ param_user }}"
+
+  - name: Setting up machine to allow Automation Mode without requiring user authentication
+    command: /usr/bin/osascript /tmp/automationmodetool.applescript
+
+  - name: Remove script from VM
+    file:
+      path: /tmp/automationmodetool.applescript
+      state: absent
+  when: macos_version.stdout.split('.')[0] | int == 12
+...
