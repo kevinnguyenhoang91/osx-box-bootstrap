@@ -24,6 +24,7 @@
     - role: keychain
     - role: enable-auto-login
     - role: go
+    - role: php
     - role: bitrise-specific-folders
     - role: bitrise-cli
     - role: bitrise-agent

@@ -1,0 +1,11 @@
+---
+- name: Get MacOS version
+  command: sw_vers -productVersion
+  register: macos_version
+
+# We only need to install it on Monterey
+- name: Install PHP
+  homebrew:
+    name: php@7.4
+    state: present
+  when: macos_version.stdout.split('.')[0] | int == 12
