@@ -3,6 +3,9 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## `v2022_03_22_2`
+* `Remove dead code`
+
 ## `v2022_03_22`
 * `Flutter updated: 2.10.3 and 1.22.6. Set flutter 2 as default`
 
