@@ -8,38 +8,8 @@ app:
   - VM_BUILD_IP: $VM_BUILD_IP
   - XCODE_PATH: $XCODE_PATH
 workflows:
-  _pod_remove_master:
-    steps:
-      - script:
-          title: pod repo remove master
-          run_if: .IsCI
-          inputs:
-            - content: |-
-                #!/usr/bin/env bash
-                set -e
-                # Originally the command was pod repo remove master
-                # it just erased the dir under .cocoapods/repos/master.
-                # It is huge. Not by size, but the number of files.
-                # Instead just moved to /var/tmp it is way faster and it runs only during ci.
-                mv ~/.cocoapods/repos/master /var/tmp/
-
-  _install-dependencies:
-    steps:
-      - script-runner:
-          title: Install dependencies
-          inputs:
-            - file_path: _scripts/molecule/install_dependencies.sh
-
-  #######################
-  #### Main wrkflows ####
-  #######################
   ci:
     steps:
-    - script-runner:
-        title: Check changes
-        run_if: .IsCI
-        inputs:
-        - file_path: _scripts/check_changes.sh
     - script:
         title: Validate bitrise.yml
         inputs:
@@ -69,13 +39,6 @@ workflows:
             #!/usr/bin/env bash
             set -e
             yamllint -s -c ./yamllint.yaml .
-    - build-router-start@0.14.0:
-        run_if: |-
-          {{enveq "TEST_IS_AVAILABLE" "true"}}
-        inputs:
-        - wait_for_builds: "true"
-        - workflows: $WORKFLOW_TO_TRIGGER
-        - access_token: $BITRISE_ACCESS_TOKEN
     - script:
         title: Run danger
         is_always_run: true
@@ -94,75 +57,3 @@ workflows:
         run_if: .IsCI
         inputs:
         - file_path: _scripts/generate_system_report.sh
-
-  test_ssh-setup:
-    envs:
-    - ROLE: "ssh-setup"
-    after_run:
-    - _run_molecule_test
-
-  test_android:
-    envs:
-    - ROLE: "android"
-    after_run:
-    - _run_molecule_test
-
-  test_intermediate-setup:
-    envs:
-    - ROLE: "intermediate-setup"
-    after_run:
-    - _run_molecule_test
-
-  test_bitrise-cli:
-    envs:
-    - ROLE: "bitrise-cli"
-    after_run:
-    - _run_molecule_test
-
-  test_remote-access:
-    envs:
-    - ROLE: "remote-access"
-    after_run:
-    - _run_molecule_test
-
-  test_brew-repos-fix:
-    envs:
-    - ROLE: "brew-repos-fix"
-    after_run:
-    - _run_molecule_test
-
-  test_xamarin:
-    envs:
-    - ROLE: "xamarin"
-    after_run:
-    - _run_molecule_test
-
-  test_bitrise-den:
-    envs:
-    - ROLE: "bitrise-den"
-    after_run:
-    - _run_molecule_test
-
-  test_python:
-    envs:
-    - ROLE: "python"
-    after_run:
-    - _run_molecule_test
-
-  ##############################
-  #### Utility workflows #######
-  ##############################
-
-  _run_molecule_test:
-    before_run:
-      - _install-dependencies
-    steps:
-      - change-workdir@1:
-          title: hopp into the test folder
-          inputs:
-            - path: roles/tests
-      - script-runner:
-          title: molecule test
-          inputs:
-            - file_path: ../../_scripts/molecule/test.sh
-      - deploy-to-bitrise-io@1: {}
