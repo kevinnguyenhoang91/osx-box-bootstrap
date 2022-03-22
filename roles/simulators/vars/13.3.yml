@@ -1,2 +1,12 @@
 ---
-simulators: []
+simulators:
+  - 'watchOS 8.3'
+  - 'watchOS 8.0'
+  - 'watchOS 7.4'
+  - 'tvOS 15.2'
+  - 'tvOS 15.0'
+  - 'tvOS 14.5'
+  - 'iOS 15.2'
+  - 'iOS 15.0'
+  - 'iOS 14.5'
+  - 'iOS 13.7'

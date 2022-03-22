@@ -3,6 +3,9 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## `v2022_03_21_7`
+* `Simulators for XC 13.3`
+
 ## `v2022_03_21_6`
 * `Add metadata for php`
 
