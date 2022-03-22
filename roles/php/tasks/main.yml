@@ -9,3 +9,11 @@
     name: php@7.4
     state: present
   when: macos_version.stdout.split('.')[0] | int == 12
+
+- name: Generate script to profile.d
+  become: true
+  template:
+    src: patch.j2
+    dest: /Users/{{ param_user }}/profile.d/php.sh
+    owner: "{{ param_user }}"
+    mode: "0755"

@@ -3,6 +3,9 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## `v2022_03_21_6`
+* `Add metadata for php`
+
 ## `v2022_03_21_5`
 * `Pre-install PhP7 on Monterey`
 
