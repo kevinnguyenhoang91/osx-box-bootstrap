@@ -3,6 +3,9 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## `v2022_03_22_3`
+* `Preinstall JDK17`
+
 ## `v2022_03_22_2`
 * `Remove dead code`
 
