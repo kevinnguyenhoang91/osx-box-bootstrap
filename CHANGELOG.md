@@ -3,6 +3,9 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## `v2022_03_28`
+* `Homebrew update`
+
 ## `v2022_03_24`
 * `Add Android SDK 31 and 32`
 
