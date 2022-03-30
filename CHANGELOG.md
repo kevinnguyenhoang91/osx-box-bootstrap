@@ -6,6 +6,9 @@ All notable changes to this project will be documented in this file.
 ## `v2022_03_30_2`
 * `Update cordova to 11.0.0`
 
+## `v2022_03_30`
+* `Ionic/cli 6.19.0`
+
 ## `v2022_03_28`
 * `Homebrew update`
 
