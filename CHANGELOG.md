@@ -3,6 +3,9 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## `v2022_03_30_3`
+* `Updated appcenter cli to 2.10.8`
+
 ## `v2022_03_30_2`
 * `Update cordova to 11.0.0`
 
