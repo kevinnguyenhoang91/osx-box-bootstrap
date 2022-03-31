@@ -6,8 +6,8 @@
   with_items:
     - "{{ brew_packages }}"
 
-- name: "run git lfs install"
-  shell: bash -l -c 'git lfs install'
+#- name: "run git lfs install"
+#  shell: bash -l -c 'git lfs install'
 
 - name: Add ansible.cfg to add some settings
   copy:
@@ -16,9 +16,9 @@
 
 # curl used in place of get_url or uri module
 # Shells that use pipes should set the pipefail option
-- name: "Firebase (CLI)"  # noqa 303 306
-  shell: bash -l -c "curl -sL firebase.tools | bash"
-  become: true
+#- name: "Firebase (CLI)"  # noqa 303 306
+#  shell: bash -l -c "curl -sL firebase.tools | bash"
+#  become: true
 
 # Setup Bitrise specific folders:
 # Setup the base folders / paths, referenced by ~/.profiles/bitrise_profile
