@@ -3,6 +3,24 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## `v2022_04_04`
+* `Update Homebrew Core and Cask`
+
+## `v2022_03_30_3`
+* `Updated appcenter cli to 2.10.8`
+
+## `v2022_03_30_2`
+* `Update cordova to 11.0.0`
+
+## `v2022_03_30`
+* `Ionic/cli 6.19.0`
+
+## `v2022_03_28`
+* `Homebrew update`
+
+## `v2022_03_24`
+* `Add Android SDK 31 and 32`
+
 ## `v2022_03_21_7`
 * `Simulators for XC 13.3`
 
