@@ -22,6 +22,8 @@ workflows:
         deps:
           brew:
             - name: ansible-lint
+          apt_get:
+            - name: ansible-lint
         inputs:
         - content: |-
             #!/usr/bin/env bash
@@ -33,6 +35,8 @@ workflows:
         title: Run Yamllint
         deps:
           brew:
+            - name: yamllint
+          apt_get:
             - name: yamllint
         inputs:
         - content: |-
