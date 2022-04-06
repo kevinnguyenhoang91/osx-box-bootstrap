@@ -3,6 +3,9 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## `v2022_04_06`
+* `Update Ruby patch versions`
+
 ## `v2022_04_04_1`
 * `Always install latest available Ruby Gems`
 
