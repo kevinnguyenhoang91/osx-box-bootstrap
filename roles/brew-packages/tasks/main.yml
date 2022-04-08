@@ -21,6 +21,14 @@
     - "{{ brew_packages_with_version_constraints }}"
   when: ansible_distribution_version.split(".")[0] | int >= item.minimum_os_version
 
+- name: Generate script to profile.d
+  become: true
+  template:
+    src: patch.j2
+    dest: /Users/{{ param_user }}/profile.d/groovy.sh
+    owner: "{{ param_user }}"
+    mode: "0755"
+
 - name: Install danger-swift below 11.4.x
   homebrew:
     name: "danger/tap/danger-swift"

@@ -23,6 +23,7 @@ brew_packages:
   - name: "wget"
   - name: "yarn"
   - name: "openvpn"
+  - name: "groovy"
 
 brew_packages_with_version_constraints:
   - name: "swiftlint"
