@@ -3,6 +3,9 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## `v2022_04_12`
+* `Add arm64 support to multiple roles`
+
 ## `v2022_04_06`
 * `Pre-install groovy`
 
