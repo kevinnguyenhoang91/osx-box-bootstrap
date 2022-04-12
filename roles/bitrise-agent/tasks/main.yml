@@ -4,7 +4,7 @@
     url: https://api.github.com/repos/bitrise-io/den/releases
     headers:
       Authorization: "token {{ lookup('env', 'GITHUB_ACCESS_TOKEN') }}"
-    return_content: yes
+    return_content: true
   register: releases_response
 
 - name: "bitrise DEN: set binary arch"

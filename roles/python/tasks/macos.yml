@@ -13,4 +13,4 @@
   pip:
     name: "{{ pip_packages }}"
     state: present
-    executable:  "{{ '/opt/homebrew/bin/pip3' if ansible_architecture == 'arm64' else '/usr/local/bin/pip3' }}"
+    executable: "{{ '/opt/homebrew/bin/pip3' if ansible_architecture == 'arm64' else '/usr/local/bin/pip3' }}"
