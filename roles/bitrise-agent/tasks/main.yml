@@ -20,7 +20,7 @@
 - name: "bitrise DEN: Check if CLI {{ bitrise_den_version }} release was found"
   fail:
     msg: CLI {{ bitrise_den_version }} release not found
-  when: download_url == ''
+  when: download_url is not defined
 
 - name: "bitrise DEN: download {{ download_url }}"
   become: true
@@ -34,7 +34,6 @@
     headers:
       Authorization: "token {{ lookup('env', 'GITHUB_ACCESS_TOKEN') }}"
       Accept: "application/octet-stream"
-  register: cli_zip
 
 - name: "bitrise DEN: extract"
   become: true
@@ -48,7 +47,6 @@
     mode: '0755'
     group: staff
     remote_src: true
-  when: cli_zip.changed
 
 - name: "bitrise DEN: cleanup zip"
   become: true
