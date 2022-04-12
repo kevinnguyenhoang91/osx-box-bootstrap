@@ -1,5 +1,14 @@
 ---
 # kcpassword from https://github.com/veertuinc/kcpassword.git
+- name: make sure /usr/local/bin is present and writeable
+  become: true
+  file:
+    path: /usr/local/bin
+    owner: "{{ param_user }}"
+    group: staff
+    state: directory
+    mode: '0775'
+
 - name: kcpassword python file
   copy:
     src: kcpassword
@@ -10,7 +19,7 @@
 
 - name: run kcpassword
   become: true
-  command: /usr/bin/python /usr/local/bin/kcpassword "{{ password_of_param_user }}"
+  command: /usr/bin/python3 /usr/local/bin/kcpassword "{{ password_of_param_user }}"
 
 - name: add "{{ param_user }}" to defaults autologin
   become: true

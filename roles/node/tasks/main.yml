@@ -1,4 +1,4 @@
 ---
 - import_tasks: node.yml
   environment:
-    PATH: /usr/local/bin/:{{ ansible_env.PATH }}
+    PATH: "{{ '/opt/homebrew/bin/' if ansible_architecture == 'arm64' else '/usr/local/bin/' }}:{{ ansible_env.PATH }}"

@@ -1,5 +1,13 @@
+if [[ $(uname -m) == "arm64" ]]; then
+export PATH="/opt/homebrew/opt/php@7.4/bin:$PATH"
+export PATH="/opt/homebrew/opt/php@7.4/sbin:$PATH"
+
+export LDFLAGS="-L/opt/homebrew/opt/php@7.4/lib"
+export CPPFLAGS="-I/opt/homebrew/opt/php@7.4/include"
+else
 export PATH="/usr/local/opt/php@7.4/bin:$PATH"
 export PATH="/usr/local/opt/php@7.4/sbin:$PATH"
 
 export LDFLAGS="-L/usr/local/opt/php@7.4/lib"
 export CPPFLAGS="-I/usr/local/opt/php@7.4/include"
+fi

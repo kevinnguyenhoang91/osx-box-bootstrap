@@ -19,6 +19,14 @@ export GO111MODULE=auto
 export PATH="$PATH:$HOME/.pub-cache/bin"
 export PATH="$PATH:$HOME/fvm/default/bin"
 
+if [[ $(uname -m) == "arm64" ]]; then
+  # setup brew on arm
+  eval $(/opt/homebrew/bin/brew shellenv)
+
+  # To install older ruby versions on M1, set -w flag
+  export RUBY_CFLAGS="-w"
+fi
+
 # Ruby - force brew installed Ruby
 if [ -d "/usr/local/lib/ruby/gems/2.5.0/bin" ] ; then
   export PATH="$PATH:/usr/local/lib/ruby/gems/2.5.0/bin"
@@ -38,7 +46,7 @@ if [ -s "$HOME/.profiles/tools_profile" ] ; then
   source "$HOME/.profiles/tools_profile"
 fi
 
-for PROFILE_SCRIPT in $( ls $HOME/profile.d/* ); do
+for PROFILE_SCRIPT in $( find $HOME/profile.d -type f ); do
   . $PROFILE_SCRIPT
 done
 

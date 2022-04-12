@@ -18,6 +18,7 @@
     - role: brew
     - role: brew-repos-fix
     - role: flutter
+      when: ansible_architecture == "x86_64"
     - role: python
     - role: certs
     - role: spotlight
@@ -31,6 +32,7 @@
     - role: remote-access
     - role: ssh-setup
     - role: cmd-bridge
+      when: ansible_architecture == "x86_64"
     - role: brew-packages
     - role: git
     - role: firebase

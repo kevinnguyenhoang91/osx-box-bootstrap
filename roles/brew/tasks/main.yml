@@ -8,7 +8,7 @@
   when: ansible_distribution == 'Ubuntu'
 
 - name: Check if brew is installed
-  shell: "/usr/local/bin/brew config"
+  shell: "{{ '/opt/homebrew/bin/brew' if ansible_architecture == 'arm64' else '/usr/local/bin/brew' }} config"
   register: is_brew_installed
   changed_when: false
   ignore_errors: true

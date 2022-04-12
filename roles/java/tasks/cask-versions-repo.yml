@@ -4,10 +4,14 @@
     name: homebrew/cask-versions
     state: absent
 
+- name: Set cask path
+  set_fact:
+    cask_prefix: "{{ '/opt/homebrew/' if ansible_architecture == 'arm64' else '/usr/local/Homebrew' }}"
+
 # Use our own mirror of cask-versions
 - name: Remove existing cask-versions
   file:
-    path: /usr/local/Homebrew/bitrise-io/cask-versions
+    path: "{{ cask_prefix }}/bitrise-io/cask-versions"
     state: absent
 
 - name: Create location for cask-versions mirror
@@ -25,4 +29,4 @@
 - name: Git clone cask-versions mirror to homebrew location
   git:
     repo: ~/mirrors/github.com/bitrise-io/cask-versions
-    dest: /usr/local/Homebrew/bitrise-io/cask-versions
+    dest: "{{ cask_prefix }}/bitrise-io/cask-versions"

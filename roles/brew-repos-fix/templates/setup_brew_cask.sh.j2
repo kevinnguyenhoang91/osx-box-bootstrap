@@ -2,9 +2,16 @@
 
 set -e
 
+# set default brew path
+if [[ $(uname -m) == "arm64" ]]; then
+  path_to_brew="/opt/homebrew/bin"
+else
+  path_to_brew="/usr/local/bin"
+fi
+
 source {{ ansible_env.HOME }}/.bashrc
 
-brew_repository=$(brew --repository)
+brew_repository=$("${path_to_brew}"/brew --repository)
 
 rm -rf {{ ansible_env.HOME }}/mirrors/github.com/bitrise-io/homebrew-cask
 

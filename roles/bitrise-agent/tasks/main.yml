@@ -1,37 +1,45 @@
 ---
-- name: Make sure jq is installed
-  homebrew:
-    name: "jq"
-    state: present
-    update_homebrew: false
-
-- name: Get asset id list
-  get_url:
-    url: "https://api.github.com/repos/bitrise-io/den/releases"
-    dest: /var/tmp/bitrise-den-releases.json
+- name: "bitrise DEN: fetch releases"
+  uri:
+    url: https://api.github.com/repos/bitrise-io/den/releases
     headers:
       Authorization: "token {{ lookup('env', 'GITHUB_ACCESS_TOKEN') }}"
+    return_content: yes
+  register: releases_response
 
-- name: Get asset id for selected version
-  shell: >
-    set -o pipefail && \
-      cat /var/tmp/bitrise-den-releases.json \
-      | "{{ dist_path['%s' | format(ansible_distribution)] }}" ". | map(select(.tag_name == \"{{ bitrise_den_version }}\"))[0].assets | map(select(.name | contains(\"darwin\")))[0].id"
-  args:
-    executable: /bin/bash
-  register: asset_id
+- name: "bitrise DEN: set binary arch"
+  set_fact:
+    den_arch: "{{ 'amd64' if ansible_architecture == 'x86_64' else ansible_architecture }}"
 
-- name: Download den agent
+- name: "bitrise DEN: Query filter URL of CLI {{ bitrise_den_version }}"
+  set_fact:
+    download_url: "{{ releases_response.json | json_query(query) }}"
+  vars:
+    query: "[?name=='{{ bitrise_den_version }}'].assets[] | [?name=='bitrise-den-{{ ansible_system | lower }}-{{ den_arch }}.zip'].url | [0]"
+
+- name: "bitrise DEN: Check if CLI {{ bitrise_den_version }} release was found"
+  fail:
+    msg: CLI {{ bitrise_den_version }} release not found
+  when: download_url == ''
+
+- name: "bitrise DEN: download {{ download_url }}"
+  become: true
   get_url:
-    url: "https://api.github.com/repos/bitrise-io/den/releases/assets/{{ asset_id.stdout }}"
-    dest: /var/tmp/bitrise-den-darwin-amd64.zip
+    url: "{{ download_url }}"
+    dest: "/var/tmp/bitrise-den-{{ ansible_system | lower }}-{{ den_arch }}.zip"
+    force: true  # always overwrite
+    mode: '0755'
+    owner: "{{ param_user }}"
+    group: wheel
     headers:
       Authorization: "token {{ lookup('env', 'GITHUB_ACCESS_TOKEN') }}"
       Accept: "application/octet-stream"
+  register: cli_zip
 
 - name: "bitrise DEN: extract"
+  become: true
   unarchive:
-    src: /var/tmp/bitrise-den-darwin-amd64.zip
+    src: "/var/tmp/bitrise-den-{{ ansible_system | lower }}-{{ den_arch }}.zip"
     dest: "{{ ansible_env.HOME }}"
     exclude:
       - bitrise-den-cli
@@ -40,4 +48,10 @@
     mode: '0755'
     group: staff
     remote_src: true
+  when: cli_zip.changed
+
+- name: "bitrise DEN: cleanup zip"
   become: true
+  file:
+    path: "/var/tmp/bitrise-den-{{ ansible_system | lower }}-{{ den_arch }}.zip"
+    state: absent

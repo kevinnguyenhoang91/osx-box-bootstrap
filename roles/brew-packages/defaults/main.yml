@@ -33,4 +33,5 @@ danger_swift_unsupported_versions:
   - '10.3'
   - '11.1'
   - '11.3'
+  - '13.0'
 ...

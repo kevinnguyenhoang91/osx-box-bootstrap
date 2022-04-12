@@ -5,7 +5,11 @@
   changed_when: false
   ignore_errors: true
 
+- name: Set ruby build flag
+  set_fact:
+    ruby_build_flag: "{{ 'RUBY_CFLAGS=\"-w\"' if ansible_architecture == 'arm64' else '' }}"
+
 - name: Install ruby {{ ruby.version }}
-  shell: bash -l -c "rbenv install -f {{ ruby.version }}"
+  shell: bash -l -c "{{ ruby_build_flag }} rbenv install -f {{ ruby.version }}"
   when: ruby_version_is_installed.rc != 0
   retries: 3
