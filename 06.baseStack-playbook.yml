@@ -31,8 +31,6 @@
     - role: bitrise-agent
     - role: remote-access
     - role: ssh-setup
-    - role: cmd-bridge
-      when: ansible_architecture == "x86_64"
     - role: brew-packages
     - role: git
     - role: firebase
