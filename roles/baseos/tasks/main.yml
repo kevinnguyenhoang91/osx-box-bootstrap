@@ -178,7 +178,7 @@
 
 - name: Unload coreduetd service
   become: true
-  shell: launchctl unload -w /System/Library/LaunchDaemons/com.apple.coreduetd.osx.plist 
+  shell: launchctl unload -w /System/Library/LaunchDaemons/com.apple.coreduetd.osx.plist
 
 - name: Unload spindump service
   become: true
