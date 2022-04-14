@@ -187,4 +187,3 @@
 - name: Unload tailspind service
   become: true
   shell: launchctl unload -w /System/Library/LaunchDaemons/com.apple.tailspind.plist
-  
