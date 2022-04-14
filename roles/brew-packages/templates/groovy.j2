@@ -1,0 +1,8 @@
+#!/bin/bash
+
+if [[ "$(uname -m)" ==  "x86_64" ]]; then
+    export GROOVY_HOME=/usr/local/opt/groovy/libexec
+else
+    export GROOVY_HOME=/opt/homebrew/opt/groovy/libexec
+fi
+

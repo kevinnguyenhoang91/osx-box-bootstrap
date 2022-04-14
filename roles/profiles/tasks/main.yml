@@ -1,6 +1,6 @@
 ---
 - name: create profile directories
-  file:
+  ansible.builtin.file:
     path: "$HOME/{{ item.path }}"
     state: directory
     owner: "{{ param_user }}"
@@ -9,7 +9,7 @@
     - "{{ directories }}"
 
 - name: install profiles
-  copy:
+  ansible.builtin.copy:
     src: "{{ item.name }}"
     dest: "$HOME/{{ item.dest }}"
     owner: "{{ param_user }}"

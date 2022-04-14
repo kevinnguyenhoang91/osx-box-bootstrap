@@ -10,4 +10,7 @@ skip_list:
     - '601'  # Don't compare to literal True/False
     - '208'  # File permissions unset or incorrect
     - '701'  # meta/main.yml should contain relevant info
+    - 'fqcn-builtins'  # Use FQCN for builtin actions. eg.: ansible.builtin.shell
+    - 'experimental'  # all rules tagged as experimental
+    - 'package-latest'  # Package installs should not use latest
 ...
