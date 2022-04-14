@@ -175,3 +175,16 @@
 - name: "Turn off gatekeeper - it will disable the popup of the not appstore downloaded warning"
   shell: spctl --master-disable
   become: true
+
+- name: Unload coreduetd service
+  become: true
+  shell: launchctl unload -w /System/Library/LaunchDaemons/com.apple.coreduetd.osx.plist 
+
+- name: Unload spindump service
+  become: true
+  shell: launchctl unload -w /System/Library/LaunchDaemons/com.apple.spindump.plist
+
+- name: Unload tailspind service
+  become: true
+  shell: launchctl unload -w /System/Library/LaunchDaemons/com.apple.tailspind.plist
+  

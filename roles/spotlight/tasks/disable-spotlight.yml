@@ -25,4 +25,8 @@
     cmd: |
       mdutil -a -i off /
       mdutil -a -i off
+
+- name: Unload mds service
+  become: true
+  shell: launchctl unload -w /System/Library/LaunchDaemons/com.apple.metadata.mds.plist
 ...

@@ -3,6 +3,9 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## `v2022_04_14`
+* `Disable CPU hog system services`
+
 ## `v2022_04_06`
 * `Pre-install groovy`
 
