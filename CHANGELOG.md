@@ -3,6 +3,9 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## `v2022_04_20_2`
+* `Update Homebrew Core and Cask`
+
 ## `v2022_04_20`
 * `Groovy added to sysreport pre-installed section`
 
